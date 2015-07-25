@@ -1,3 +1,3 @@
 # Westminster
  
-When ASP.NET 5 meets Aurelia and TypeScript in Visual Studio 2015
+When ASP.NET 5 meets [Aurelia](http://aurelia.io/) and TypeScript in Visual Studio 2015
