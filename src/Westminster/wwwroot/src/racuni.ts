@@ -1,3 +1,5 @@
-﻿export class Racuni {
+﻿import Immutable = require('immutable');
+
+export class Racuni {
     
 }
