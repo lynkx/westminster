@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "amd",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": false,
+        "noLib": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true
+    }
+}
