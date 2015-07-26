@@ -5,7 +5,7 @@ define(["require", "exports"], function (require, exports) {
         App.prototype.configureRouter = function (config, router) {
             config.title = 'Aurelia';
             config.map([
-                { route: ['', 'racuni'], moduleId: './racuni', nav: true, title: 'Welcome' }
+                { route: ['', 'bills'], moduleId: './bills', nav: true, title: 'Welcome' }
             ]);
             this.router = router;
         };

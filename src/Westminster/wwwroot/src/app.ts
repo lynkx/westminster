@@ -6,7 +6,7 @@ export class App {
     configureRouter(config, router: Router) {
         config.title = 'Aurelia';
         config.map([
-            { route: ['', 'racuni'], moduleId: './racuni', nav: true, title: 'Welcome' }
+            { route: ['', 'bills'], moduleId: './bills', nav: true, title: 'Welcome' }
         ]);
 
         this.router = router;

@@ -1,27 +1,54 @@
-﻿module Memento {
+﻿export module Memento {
     export class CareTaker<T> {
-        mementos: Array<KeyValuePair<T>> = new Array<KeyValuePair<T>>();
+        public undoStack = new Array<string>();
+        public redoStack = new Array<string>();
+        public state: T;
 
-        public addMemento(key: string, memento: T): void {
-            this.mementos[key] = memento;
+        constructor(defaultState?: T) {
+            this.state = defaultState;
         }
 
-        public getMemento(key: string) {
-            return this.mementos[key];
+        
+
+        public undo(): T {
+            if (this.undoReady()) {
+                var memento = this.undoStack.pop();
+                this.redoStack.push(JSON.stringify(this.state));
+                var undoed = JSON.parse(memento);
+                this.change(undoed);
+                return undoed;
+            }
+            return null;
         }
-    }
 
-    export class UndoRedoManager<T> {
-        public undoStack: Array<T> = new Array<T>();
-    }
+        public redo(): T {
+            if (this.redoReady()) {
+                var memento = this.redoStack.pop();
+                this.undoStack.push(JSON.stringify(this.state));
+                var redoed = JSON.parse(memento);
+                this.change(redoed);
+                return redoed;
+            }
+            return null;
+        }
+        
+        private undoReady() :boolean {
+            return this.undoStack.length > 0;
+        }
+        get canUndo() :boolean {
+            return this.undoReady();
+        }
 
-    
+        private redoReady(): boolean {
+            return this.redoStack.length > 0;
+        }
+        get canRedo(): boolean {
+            return this.redoReady();
+        }
 
-    export interface KeyValuePair<V> {
-        [index: string]: V
-    }
-
-    export interface IHydrate {
-
+        private change(state: T) {
+            
+            this.state = state;
+        }
     }
 }

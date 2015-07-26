@@ -213,3 +213,7 @@ ModelManifest.xml
 
 # JSPM 
 jspm_packages/
+
+# dist folder
+
+

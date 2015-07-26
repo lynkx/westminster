@@ -5,11 +5,16 @@
     <link href="jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="styles/app.css" rel="stylesheet" />
 </head>
-<body aurelia-app="dist/main">
+<body aurelia-app="main">
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
 <script>
-    System.baseUrl = '/dist';
+    System.config({
+        baseUrl: "dist",
+        "paths": {
+            "*": "dist/*.js"
+        }
+    });
     System.import("aurelia-bootstrapper");
 </script>
 </body>

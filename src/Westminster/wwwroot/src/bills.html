@@ -1,0 +1,12 @@
+﻿<template>
+    <table class="table table-striped">
+        <tr repeat.for="bill of bills">
+            <td>
+                ${bill.id}
+            </td>
+        </tr>
+    </table>
+    <button click.trigger="addNewBill()" class="btn btn-success">Add</button>
+    <button click.trigger="undo()" show.bind="canUndo" class="btn btn-default">Undo</button>
+    <button click.trigger="redo()" show.bind="canRedo" class="btn btn-default">Redo</button>
+</template>
