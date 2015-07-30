@@ -7,19 +7,18 @@ import {Memento} from "Memento/caretaker";
 export class BillContext extends Memento.CareTaker<Array<Bill>>{
 
     private generateTestData(): Array<Bill> {
-        var bill1Items = new Array(new BillItem(1, 2, new Array(new Product("cheese"))));
-        var bill1 = new Bill(1111, bill1Items);
-        var bill2Items = new Array(new BillItem(2, 1, new Array(new Product("milk"))));
-        var bill2 = new Bill(2222, bill2Items);
-
-        var initialData: Array<Bill> = new Array(bill1, bill2);
+        var initialData = new Array<Bill>();
+        for (var i = 0; i < 10; i++) {
+            initialData.push(new Bill(i, new Array(new BillItem(i, i, new Array(new Product("someproduct1"))))));
+        }
 
         return initialData;
     }
 
     constructor() {
-        var sampleData = this.generateTestData();
-        super(sampleData);
+        super();
+        this.state = this.generateTestData();
+        
     }
 
     public addBill(bill: Bill) {

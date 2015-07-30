@@ -1,16 +1,10 @@
-define(["require", "exports"], function (require, exports) {
-    var App = (function () {
-        function App() {
-        }
-        App.prototype.configureRouter = function (config, router) {
-            config.title = 'Aurelia';
-            config.map([
-                { route: ['', 'bills'], moduleId: './bills', nav: true, title: 'Welcome' }
-            ]);
-            this.router = router;
-        };
-        return App;
-    })();
-    exports.App = App;
-});
+export class App {
+    configureRouter(config, router) {
+        config.title = 'Aurelia';
+        config.map([
+            { route: ['', 'bills'], moduleId: './bills', nav: true, title: 'Welcome' }
+        ]);
+        this.router = router;
+    }
+}
 //# sourceMappingURL=app.js.map

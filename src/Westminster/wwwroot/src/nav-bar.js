@@ -9,16 +9,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework"], function (require, exports, aurelia_framework_1) {
-    var NavBar = (function () {
-        function NavBar() {
-            this.router = null;
-        }
-        __decorate([
-            aurelia_framework_1.bindable, 
-            __metadata('design:type', Object)
-        ], NavBar.prototype, "router");
-        return NavBar;
-    })();
-    exports.NavBar = NavBar;
-});
+import { bindable } from "aurelia-framework";
+export class NavBar {
+    constructor() {
+        this.router = null;
+    }
+}
+__decorate([
+    bindable, 
+    __metadata('design:type', Object)
+], NavBar.prototype, "router");
+//# sourceMappingURL=nav-bar.js.map
