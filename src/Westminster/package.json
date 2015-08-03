@@ -27,7 +27,9 @@
     "karma-jspm": "^2.0.1-beta.1",
     "object.assign": "^3.0.1",
     "run-sequence": "^1.1.2",
-    "vinyl-paths": "^1.0.0"
+    "vinyl-paths": "^1.0.0",
+    "gulp-typescript": "^2.8.0",
+    "merge2": "*"
   },
   "jspm": {
     "directories": {

@@ -16,6 +16,10 @@ var browserSync = require('browser-sync');
 var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
 var replace = require('gulp-replace');
+var ts = require('gulp-typescript');
+var merge = require('merge2');
+
+var tsProject = ts.createProject('tsconfig.json');
 
 var path = {
     source: 'wwwroot/src/**/*.js',
@@ -23,7 +27,11 @@ var path = {
     sourceMaps: 'wwwroot/src/**/*.map',
     html: 'wwwroot/src/**/*.html',
     output: 'wwwroot/dist/',
-    doc: 'wwwroot/doc'
+    doc: 'wwwroot/doc',
+    base: "wwwroot/src",
+    packageTypings: "wwwroot/jspm_packages/**/*.d.ts",
+    tsd: "typings/**/*.d.ts"
+
 };
 
 var compilerOptions = {
@@ -59,6 +67,16 @@ gulp.task('build-amd', function () {
       .pipe(gulp.dest(path.output))
       .pipe(browserSync.reload({ stream: true }));
 });
+
+gulp.task('build-ts', function () {
+    var tsResult = gulp.src([path.typescript, path.packageTypings, path.tsd], { base: path.base }).pipe(ts(tsProject));
+    return merge([
+        tsResult.dts.pipe(gulp.dest(path.output)),
+        tsResult.js.pipe(gulp.dest(path.output))
+    ]);
+
+});
+
 
 gulp.task('copy-typescript-output', function () {
     return gulp.src(path.source)
@@ -109,6 +127,7 @@ gulp.task('bump-version', function () {
 gulp.task('build', function (callback) {
     return runSequence(
       'clean',
+      'build-ts',
       ['copy-typescript-output', 'build-html'],
       callback
     );

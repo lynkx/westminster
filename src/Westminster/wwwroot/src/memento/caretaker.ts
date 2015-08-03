@@ -1,7 +1,8 @@
-﻿export module Memento {
+﻿
+export module Memento {
     export class CareTaker<T> {
-        public undoStack = new Array<string>();
-        public redoStack = new Array<string>();
+        public undoStack: Array<string> = [];
+        public redoStack : Array<string> = [];
         public state: T;
 
         constructor(defaultState?: T) {

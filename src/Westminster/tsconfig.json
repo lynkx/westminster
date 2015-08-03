@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "system",
+        "target": "es5",
+        "module": "amd",
         "declaration": false,
         "noImplicitAny": false,
         "removeComments": false,
@@ -9,5 +9,40 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "sourceMap": true
-    }
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "!./node_modules/**/*.ts"
+    ],
+    "files": [
+        "./typings/core-js.d.ts",
+        "./typings/core-js/core-js.d.ts",
+        "./typings/tsd.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/binding@0.8.4/aurelia-binding.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/dependency-injection@0.9.1/aurelia-dependency-injection.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/event-aggregator@0.6.2/aurelia-event-aggregator.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/framework@0.13.4/aurelia-framework.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/history-browser@0.6.2/aurelia-history-browser.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/history@0.6.1/aurelia-history.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/loader-default@0.9.1/aurelia-loader-default.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/loader@0.8.3/aurelia-loader.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/logging-console@0.6.1/aurelia-logging-console.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/logging@0.6.2/aurelia-logging.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/metadata@0.7.1/aurelia-metadata.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/path@0.8.1/aurelia-path.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/route-recognizer@0.6.1/aurelia-route-recognizer.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/router@0.10.3/aurelia-router.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/task-queue@0.6.1/aurelia-task-queue.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/templating-binding@0.13.2/aurelia-templating-binding.d.ts",
+        "./wwwroot/jspm_packages/github/aurelia/templating@0.13.15/aurelia-templating.d.ts",
+        "./wwwroot/src/app.ts",
+        "./wwwroot/src/bills.ts",
+        "./wwwroot/src/main.ts",
+        "./wwwroot/src/memento/caretaker.ts",
+        "./wwwroot/src/model/Bill.ts",
+        "./wwwroot/src/model/BillContext.ts",
+        "./wwwroot/src/model/BillItem.ts",
+        "./wwwroot/src/model/Product.ts",
+        "./wwwroot/src/nav-bar.ts"
+    ]
 }
