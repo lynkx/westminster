@@ -8,6 +8,14 @@
     "Microsoft.AspNet.StaticFiles": "1.0.0-beta5"
   },
 
+  "scripts": {
+    "postrestore": [
+      "npm install",
+      "jspm install",
+      "gulp buid"
+    ]
+  },
+  
   "commands": {
     "web": "Microsoft.AspNet.Hosting --config hosting.ini"
   },
