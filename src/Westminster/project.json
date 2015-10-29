@@ -28,5 +28,15 @@
         "wwwroot",
         "node_modules",
         "bower_components"
-    ]
+    ],
+
+    "scripts": {
+        "postrestore": [
+            "npm install",
+            "jspm install",
+            "gulp buid"
+        ]
+    }
+
+
 }
