@@ -18,10 +18,13 @@ namespace Westminster
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseFileServer(new FileServerOptions
-            {
-                EnableDefaultFiles = true
-            });
+            //app.UseFileServer(new FileServerOptions
+            //{
+            //    EnableDefaultFiles = true
+            //});
+            app.UseIISPlatformHandler();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
     }
 }

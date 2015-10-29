@@ -1,1 +1,1 @@
-{"version":3,"file":"Product.js","sourceRoot":"","sources":["Product.ts"],"names":["Product","Product.constructor"],"mappings":"AAAA;IAGIA,YAAYA,IAAYA;QACpBC,IAAIA,CAACA,IAAIA,GAAGA,IAAIA,CAACA;IACrBA,CAACA;AACLD,CAACA;AAAA"}
+{"version":3,"file":"Product.js","sourceRoot":"","sources":["Product.ts"],"names":["Product","Product.constructor"],"mappings":";;;;;YAAA;gBAGIA,iBAAYA,IAAYA;oBACpBC,IAAIA,CAACA,IAAIA,GAAGA,IAAIA,CAACA;gBACrBA,CAACA;gBACLD,cAACA;YAADA,CAACA,AAND,IAMC;YAND,6BAMC,CAAA"}

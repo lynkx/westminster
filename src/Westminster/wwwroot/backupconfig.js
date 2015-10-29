@@ -3,12 +3,10 @@ System.config({
   transpiler: "babel",
   babelOptions: {
     "optional": [
-      "runtime",
-      "optimisation.modules.system"
+      "runtime"
     ]
   },
   paths: {
-    "*": "dist/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
@@ -16,7 +14,7 @@ System.config({
   map: {
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.18.0",
     "aurelia-framework": "github:aurelia/framework@0.17.0",
-    "babel": "npm:babel-core@5.8.30",
+    "babel": "npm:babel-core@5.8.29",
     "babel-runtime": "npm:babel-runtime@5.8.29",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "core-js": "npm:core-js@1.2.3",

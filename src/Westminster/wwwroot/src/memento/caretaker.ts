@@ -1,42 +1,61 @@
-﻿
+﻿/// <reference path="../../jspm_packages/npm/immutable@3.7.5/dist/immutable.d.ts" />
+//import Immutable = require('immutable');
+import * as Immutable from "immutable";
+
 export module Memento {
     export class CareTaker<T> {
-        public undoStack: Array<string> = [];
-        public redoStack : Array<string> = [];
+        public undoStack = new Array<T>();
+        public redoStack = new Array<T>();
         public state: T;
 
+
         constructor(defaultState?: T) {
-            this.state = defaultState;
+            this.state = Immutable.fromJS(defaultState);//defaultState;
+            
         }
 
-        
-
-        public undo(): T {
+        public undo():void {
             if (this.undoReady()) {
                 var memento = this.undoStack.pop();
-                this.redoStack.push(JSON.stringify(this.state));
-                var undoed = JSON.parse(memento);
-                this.change(undoed);
-                return undoed;
+                this.redoStack.push(this.state);
+                this.change(memento);
             }
-            return null;
         }
 
-        public redo(): T {
+        public redo(): void {
             if (this.redoReady()) {
                 var memento = this.redoStack.pop();
-                this.undoStack.push(JSON.stringify(this.state));
-                var redoed = JSON.parse(memento);
-                this.change(redoed);
-                return redoed;
+                this.undoStack.push(this.state);
+                this.change(memento);
             }
-            return null;
         }
-        
-        private undoReady() :boolean {
+
+        //public undo(): T {
+        //    if (this.undoReady()) {
+        //        var memento = this.undoStack.pop();
+        //        this.redoStack.push(Immutable.fromJS(this.state));
+        //        var undoed = memento.toJS();
+        //        this.change(undoed);
+        //        return undoed;
+        //    }
+        //    return null;
+        //}
+
+        //public redo(): T {
+        //    if (this.redoReady()) {
+        //        var memento = this.redoStack.pop();
+        //        this.undoStack.push(Immutable.fromJS(this.state));
+        //        var redoed = memento.toJS();
+        //        this.change(redoed);
+        //        return redoed;
+        //    }
+        //    return null;
+        //}
+
+        private undoReady(): boolean {
             return this.undoStack.length > 0;
         }
-        get canUndo() :boolean {
+        get canUndo(): boolean {
             return this.undoReady();
         }
 
@@ -48,7 +67,6 @@ export module Memento {
         }
 
         private change(state: T) {
-            
             this.state = state;
         }
     }
